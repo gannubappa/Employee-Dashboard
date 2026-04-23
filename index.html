@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Portal Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-body">
+  <main class="login-layout">
+    <section class="login-showcase">
+      <p class="eyebrow">Employee Workspace</p>
+      <h1>One portal for attendance, salary slips, notices, and learning.</h1>
+      <p class="hero-copy">
+        Sign in as an employee to see your dashboard, or open the admin panel to manage employee records and business updates.
+      </p>
+
+      <div class="feature-stack">
+        <article class="feature-card">
+          <h2>Employee Dashboard</h2>
+          <p>Attendance summary, late coming report, latest salary slips, appreciation certificates, and daily tasks.</p>
+        </article>
+        <article class="feature-card">
+          <h2>Admin Management</h2>
+          <p>Add employees, update their salary and attendance records, and publish notices and study material.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="login-panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Secure Login</p>
+          <h2>Welcome back</h2>
+        </div>
+      </div>
+
+      <form id="loginForm" class="auth-form">
+        <label class="field">
+          <span>Login as</span>
+          <select id="role" required>
+            <option value="employee">Employee</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>User ID</span>
+          <input id="empId" type="text" placeholder="userid" required>
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <input id="password" type="password" placeholder="Enter password" required>
+        </label>
+
+        <button type="submit" class="full-button">Login</button>
+        <p id="loginMessage" class="form-message" aria-live="polite"></p>
+      </form>
+
+      <div class="demo-card">
+        <h3>Demo Credentials</h3>
+        <p><strong>Employee:</strong> EMP001 / emp123</p>
+        <p><strong>Admin:</strong> ADMIN01 / admin123</p>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

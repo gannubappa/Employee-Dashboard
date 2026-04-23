@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-block">
+        <p class="eyebrow">Employee Workspace</p>
+        <h1>Employee Dashboard</h1>
+        <p class="sidebar-copy">Live data for attendance, salary, certificates, daily updates, notices, and study material.</p>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#attendance">Attendance</a>
+        <a href="#salary">Salary Slips</a>
+        <a href="#notices">Notices</a>
+        <a href="#learning">Study Material</a>
+      </nav>
+
+      <div class="profile-card">
+        <div class="avatar" id="avatar">--</div>
+        <div>
+          <h2 id="sidebarName">Loading...</h2>
+          <p id="sidebarRole">Employee</p>
+        </div>
+      </div>
+
+      <button type="button" class="ghost side-button" id="logoutButton">Logout</button>
+    </aside>
+
+    <main class="content">
+      <section class="hero" id="overview">
+        <div>
+          <p class="eyebrow">Dashboard Summary</p>
+          <h2 id="welcomeHeading">Welcome</h2>
+          <p class="hero-copy" id="employeeMeta">Loading employee details...</p>
+        </div>
+        <div class="hero-actions">
+          <button type="button" id="refreshButton">Refresh Data</button>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card warm">
+          <p>Attendance This Month</p>
+          <h3 id="attendanceCount">0 / 0</h3>
+          <span id="attendanceRate">0% present rate</span>
+        </article>
+        <article class="stat-card alert">
+          <p>Late Coming</p>
+          <h3 id="lateCount">0 Days</h3>
+          <span id="lateTrend">Current month trend</span>
+        </article>
+        <article class="stat-card cool">
+          <p>Certificates</p>
+          <h3 id="certificateCount">0 Earned</h3>
+          <span id="certificateNote">Recognition details</span>
+        </article>
+        <article class="stat-card neutral">
+          <p>Unread Notices</p>
+          <h3 id="noticeCount">0 Updates</h3>
+          <span id="noticeNote">Company communication</span>
+        </article>
+      </section>
+
+      <section class="panel-grid">
+        <article class="panel large-panel" id="attendance">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Attendance</p>
+              <h3>Monthly Attendance Tracker</h3>
+            </div>
+            <span class="badge success">Live</span>
+          </div>
+
+          <div class="progress-row">
+            <div>
+              <p class="mini-label">Present Days</p>
+              <strong id="presentDays">0 Days</strong>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill present" id="presentBar"></div>
+            </div>
+          </div>
+
+          <div class="progress-row">
+            <div>
+              <p class="mini-label">Late Coming</p>
+              <strong id="lateDays">0 Days</strong>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill late" id="lateBar"></div>
+            </div>
+          </div>
+
+          <div class="attendance-table" id="attendanceTable"></div>
+        </article>
+
+        <article class="panel" id="salary">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Salary Slips</p>
+              <h3>Last 3 Months</h3>
+            </div>
+          </div>
+          <ul class="resource-list" id="salaryList"></ul>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Recognition</p>
+              <h3>Appreciation Certificates</h3>
+            </div>
+          </div>
+          <div id="certificateList" class="stack-list"></div>
+        </article>
+
+        <article class="panel" id="notices">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Notice</p>
+              <h3>Company Notice Board</h3>
+            </div>
+          </div>
+          <ul class="notice-list" id="noticeList"></ul>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Daily Update</p>
+              <h3>Today Tasks</h3>
+            </div>
+          </div>
+          <ul class="task-list" id="taskList"></ul>
+        </article>
+
+        <article class="panel" id="learning">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Study Material</p>
+              <h3>Learning Resources</h3>
+            </div>
+          </div>
+          <ul class="resource-list" id="studyList"></ul>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

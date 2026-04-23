@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+  <main class="admin-layout">
+    <section class="panel admin-login" id="adminLoginPanel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Admin Access</p>
+          <h2>Manage employee records</h2>
+        </div>
+      </div>
+
+      <form id="adminLoginForm" class="auth-form">
+        <label class="field">
+          <span>Admin ID</span>
+          <input id="adminId" type="text" placeholder="ADMIN01" required>
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input id="adminPassword" type="password" placeholder="Enter password" required>
+        </label>
+        <button type="submit" class="full-button">Login to Admin Panel</button>
+        <p id="adminLoginMessage" class="form-message"></p>
+      </form>
+
+      <p class="muted-copy">Admin secure access</p>
+      <a class="text-link" href="index.html">Back to employee login</a>
+    </section>
+
+    <section class="admin-workspace hidden" id="adminWorkspace">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Admin Workspace</p>
+          <h2 id="adminHeading">Employee Data Manager</h2>
+          <p class="hero-copy">Use the menu below to open employee form, bank details, more info, or the employee list.</p>
+        </div>
+        <div class="hero-actions">
+          <button type="button" class="ghost" id="adminLogoutButton">Logout</button>
+        </div>
+      </section>
+
+      <section class="admin-menu panel">
+        <button type="button" class="menu-button active" data-admin-view="employee-form">Employee Form</button>
+        <button type="button" class="menu-button" data-admin-view="bank-details">Bank Details</button>
+        <button type="button" class="menu-button" data-admin-view="more-info">More Info</button>
+        <button type="button" class="menu-button" data-admin-view="employee-list">Employee List</button>
+      </section>
+
+      <section class="admin-view active" id="employeeFormView">
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow" id="employeeFormEyebrow">Create Employee</p>
+              <h3 id="employeeFormHeading">Mandatory employee details</h3>
+            </div>
+          </div>
+
+          <form id="employeeForm" class="auth-form compact-form">
+            <input id="employeeOriginalId" type="hidden">
+
+            <div id="basicFields" class="form-section-grid">
+              <label class="field">
+                <span>User ID</span>
+                <input id="employeeId" type="text" placeholder="userid" required>
+              </label>
+              <label class="field">
+                <span>Password</span>
+                <input id="employeePassword" type="password" placeholder="Create password" required>
+              </label>
+              <label class="field">
+                <span>Full Name</span>
+                <input id="employeeName" type="text" placeholder="Employee name" required>
+              </label>
+              <label class="field">
+                <span>Email ID</span>
+                <input id="employeeEmail" type="email" placeholder="name@company.com" required>
+              </label>
+              <label class="field">
+                <span>Mobile No</span>
+                <input id="employeePhone" type="text" placeholder="+91 9876543210" required>
+              </label>
+              <label class="field">
+                <span>Date of Joining</span>
+                <input id="employeeJoiningDate" type="date" required>
+              </label>
+              <label class="field">
+                <span>Blood Group</span>
+                <input id="employeeBloodGroup" type="text" placeholder="O+ / A+ / B+ / AB+" required>
+              </label>
+              <label class="field">
+                <span>Gender</span>
+                <select id="employeeGender" required>
+                  <option value="">Select gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+            </div>
+
+            <div id="bankFields" class="form-section-grid hidden">
+              <label class="field">
+                <span>Bank Name</span>
+                <input id="employeeBankName" type="text" placeholder="State Bank of India">
+              </label>
+              <label class="field">
+                <span>Account Number</span>
+                <input id="employeeAccountNumber" type="text" placeholder="1234567890">
+              </label>
+              <label class="field">
+                <span>IFSC Code</span>
+                <input id="employeeIfsc" type="text" placeholder="SBIN0001234">
+              </label>
+            </div>
+
+            <div id="moreInfoFields" class="form-section-grid hidden">
+              <label class="field">
+                <span>Designation</span>
+                <input id="employeeDesignation" type="text" placeholder="UI Executive">
+              </label>
+              <label class="field">
+                <span>Department</span>
+                <input id="employeeDepartment" type="text" placeholder="Design">
+              </label>
+              <label class="field">
+                <span>Date of Birth</span>
+                <input id="employeeDob" type="date">
+              </label>
+              <label class="field">
+                <span>Employment Type</span>
+                <select id="employeeEmploymentType">
+                  <option value="Full Time">Full Time</option>
+                  <option value="Part Time">Part Time</option>
+                  <option value="Intern">Intern</option>
+                  <option value="Contract">Contract</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Work Location</span>
+                <input id="employeeLocation" type="text" placeholder="Indore Office">
+              </label>
+              <label class="field">
+                <span>Reporting Manager</span>
+                <input id="employeeManager" type="text" placeholder="Manager name">
+              </label>
+              <label class="field">
+                <span>Monthly Salary</span>
+                <input id="employeeSalary" type="number" placeholder="38500">
+              </label>
+              <label class="field">
+                <span>Leave Balance</span>
+                <input id="employeeLeaveBalance" type="number" value="12" placeholder="12">
+              </label>
+              <label class="field">
+                <span>Present Days</span>
+                <input id="employeePresentDays" type="number" value="0" placeholder="0">
+              </label>
+              <label class="field">
+                <span>Late Days</span>
+                <input id="employeeLateDays" type="number" value="0" placeholder="0">
+              </label>
+              <label class="field">
+                <span>PAN Number</span>
+                <input id="employeePan" type="text" placeholder="ABCDE1234F">
+              </label>
+              <label class="field">
+                <span>Aadhaar Number</span>
+                <input id="employeeAadhaar" type="text" placeholder="1234 5678 9012">
+              </label>
+              <label class="field">
+                <span>Emergency Contact Name</span>
+                <input id="employeeEmergencyName" type="text" placeholder="Emergency contact name">
+              </label>
+              <label class="field">
+                <span>Emergency Contact Phone</span>
+                <input id="employeeEmergencyPhone" type="text" placeholder="+91 9876543210">
+              </label>
+              <label class="field field-full">
+                <span>Address</span>
+                <input id="employeeAddress" type="text" placeholder="Full address">
+              </label>
+              <label class="field field-full">
+                <span>Notes</span>
+                <input id="employeeNotes" type="text" placeholder="Any extra employee details">
+              </label>
+            </div>
+
+            <button type="submit" class="full-button" id="employeeSubmitButton">Save Employee</button>
+            <button type="button" class="ghost full-button hidden" id="employeeCancelEditButton">Cancel Edit</button>
+            <p id="employeeFormMessage" class="form-message"></p>
+          </form>
+        </article>
+      </section>
+
+      <section class="admin-view hidden" id="employeeListView">
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Employee Directory</p>
+              <h3>All Employees</h3>
+            </div>
+            <button type="button" id="refreshEmployeesButton">Refresh Employees</button>
+          </div>
+          <div id="employeeCards" class="employee-card-grid"></div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
